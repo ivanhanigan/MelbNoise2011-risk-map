@@ -48,9 +48,9 @@
 
 <h1 id="methods">Methods</h1>
 
-<p>We used a road traffic noise model for Melbourne, Australia from 2011 based on spatial predictions to estimate population exposures at the MB level. We used the non-linear exposure–response function for traffic noise and IHD as recommended by the World Health Organization to calculate attributable fractions of deaths for MBs. LGA-level IHD rates were downscaled to MBs using publicly available data to estimate attributable risks.</p>
+<p>We used a road traffic noise model for Melbourne, Australia from 2011 based on spatial predictions at a reference height of 1.8 metres above ground level to estimate population exposures at the MB level. We used the non-linear exposure–response function for traffic noise and IHD as recommended by the World Health Organization to calculate excess fractions of deaths for MBs. LGA-level IHD rates were downscaled to MBs using publicly available data to estimate excess risks.</p>
 
-<p>We estimated attributable fractions of deaths for meshblocks by first calculating an odds ratio (OR) of IHD deaths for every meshblock by first inserting their average noise levels into the nonlinear polynomial recommended for traffic noise and IHD by the World Health Organization (WHO 2012) using the following formula:</p>
+<p>We estimated excess fractions of deaths for meshblocks by first calculating an odds ratio (OR) of IHD deaths for every meshblock by first inserting their average noise levels into the nonlinear polynomial recommended for traffic noise and IHD by the World Health Organization (WHO 2012) using the following formula:</p>
 
 <p>For <script type="math/tex">L_{day,16h}</script> &gt;= 55dB,</p>
 
@@ -62,11 +62,11 @@
 
 <p><script type="math/tex">L_{day,16h}</script> is the noise levels (0700-2300 hours).</p>
 
-<p>Our approach then uses the meshblock level populations to calculate an attributable risk at the small area level. In this approach the attributable risk is computed as:</p>
+<p>Our approach then uses the meshblock level populations to calculate an excess risk at the small area level. In this approach the excess risk is computed as:</p>
 
-<script type="math/tex; mode=display">AR_{i} = (OR(L_{day,16h,i}) - 1) \times P_{i} \times \hat{I_{k}}</script>
+<script type="math/tex; mode=display">ER_{i} = (OR(L_{day,16h,i}) - 1) \times P_{i} \times \hat{I_{k}}</script>
 
-<p>Where <script type="math/tex">AR_{i}</script> is the attributable risk of deaths in meshblock i, <script type="math/tex">L_{day,16h,i}</script> represents the average exposure level in meshblock i. <script type="math/tex">OR(L_{day,16h,i})</script> is the odds ratio at that noise level.  This is estimated by inserting the meshblock estimated <script type="math/tex">L_{day,16h}</script> into the polynomial function recommended by WHO (2012). <script type="math/tex">P_{i}</script> is the population of meshblock i whilst the baseline mortality incidence rate is <script type="math/tex">\hat{I_{k}}</script>. To estimate <script type="math/tex">\hat{I_{k}}</script> we used the regional average annual IHD incidence mortality rate <script type="math/tex">I_{k}</script> (for each region e.g. in <script type="math/tex">LGA_{k}</script>) and divide this by the population-weighted average OR of all meshblocks within region k:</p>
+<p>Where <script type="math/tex">ER_{i}</script> is the excess risk of deaths in meshblock i, <script type="math/tex">L_{day,16h,i}</script> represents the average exposure level in meshblock i. <script type="math/tex">OR(L_{day,16h,i})</script> is the odds ratio at that noise level.  This is estimated by inserting the meshblock estimated <script type="math/tex">L_{day,16h}</script> into the polynomial function recommended by WHO (2012). <script type="math/tex">P_{i}</script> is the population of meshblock i whilst the baseline mortality incidence rate is <script type="math/tex">\hat{I_{k}}</script>. To estimate <script type="math/tex">\hat{I_{k}}</script> we used the regional average annual IHD incidence mortality rate <script type="math/tex">I_{k}</script> (for each region e.g. in <script type="math/tex">LGA_{k}</script>) and divide this by the population-weighted average OR of all meshblocks within region k:</p>
 
 <script type="math/tex; mode=display">\hat{I_{k}}  = \frac{I_{k}}{\bar{OR_{k}}}</script>
 
@@ -75,7 +75,7 @@
 
 <script type="math/tex; mode=display">\bar{OR_{k}} = \frac{\sum_{i=1}^{n}P_{i} \times OR(L_{day,16h,i})}{\sum_{i=1}^{n}P_{i}}</script>
 
-<p>This aims to represent the hypothetical underlying cause- specific mortality rate for region k and aproximate the health outcomes that would be observed in a counterfactual ‘unexposed’ population.  Multiplying this by the population and OR will then yield the attributable risk that are ‘excess’, given the observed level of exposure in the meshblocks.</p>
+<p>This aims to represent the hypothetical underlying cause- specific mortality rate for region k and aproximate the health outcomes that would be observed in a counterfactual ‘unexposed’ population.  Multiplying this by the population and OR will then yield the excess risk, given the observed level of exposure in the meshblocks.</p>
 
 </p>
 <div id="disqus_thread"></div>
